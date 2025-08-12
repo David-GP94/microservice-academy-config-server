@@ -1,5 +1,6 @@
 server:
-  port: 8888
+  port: 8890
+
 spring:
   application:
     name: config-server
@@ -10,6 +11,23 @@ spring:
           uri: https://github.com/David-GP94/microservice-academy-config-application.git
           default-label: main
           clone-on-start: true
+eureka:
+  instance:
+    hostname: Config-Server
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info  # Asegúrate de incluir 'health'
+  endpoint:
+    health:
+      show-details: always
+
 logging:
   level:
     org.springframework: DEBUG

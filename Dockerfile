@@ -1,4 +1,5 @@
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY target/config-server-1.0-SNAPSHOT.jar app.jar
+COPY target/microservice-academy-config-server-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8890
 ENTRYPOINT ["java", "-jar", "app.jar"]
